@@ -2,9 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+
+// Models
+use App\Models\Type;
+
+// Helpers
+use Illuminate\Support\Str;
 
 class TypeSeeder extends Seeder
 {
@@ -24,7 +29,8 @@ class TypeSeeder extends Seeder
 
         foreach ($types as $element) {
             $newType = Type::create([
-                'name' => $element
+                'name' => $element,
+                'slug' => Str::slug($element)
             ]);
         };
     }

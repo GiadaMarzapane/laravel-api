@@ -72,7 +72,7 @@ class ProjectController extends Controller
         $data = $request->validated();
 
         // creo variabile per lo slug del title
-        $slug = Str::slug($data['title']);
+        $data['slug'] = Str::slug($data['title']);
 
         if (array_key_exists('localimg', $data)) {
             $imgPath = Storage::put('uploads', $data['localimg']);
