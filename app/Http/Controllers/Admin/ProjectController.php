@@ -79,17 +79,7 @@ class ProjectController extends Controller
             $data['localimg'] = $imgPath;
         }
         
-        // $newProject = Project::create($data);
-
-        $newProject = Project::create([
-            'title'=> $data['title'],
-            'slug'=> $slug,
-            'content'=> $data['content'],
-            'date'=> $data['date'],
-            'photo_link'=> $data['photo_link'],
-            // 'localimg' => $imgPath,
-            'type_id' =>$data['type_id']
-        ]);
+        $newProject = Project::create($data);
         
         foreach ($data['technologies'] as $technologyId) {
             $newProject->technologies()->attach($technologyId);
