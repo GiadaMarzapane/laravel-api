@@ -17,7 +17,7 @@ class ProjectController extends Controller
     {
         // recupero tutti i project dal db
         // recupero le sue relazioni
-        $projects = Project::with('type', 'technologies');
+        $projects = Project::with('type', 'technologies')->paginate(10);
 
         // costruisco la risposta della chiamata API
         $response = response()->json(
