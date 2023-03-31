@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\ProjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::name('api.')->group(
     function()
     {
-        Route::resource('projects', ProjectController::class)->only('index', 'show');
+        Route::resource('projects', ProjectController::class);
     }
 );

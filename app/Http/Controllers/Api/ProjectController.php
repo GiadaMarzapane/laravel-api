@@ -15,18 +15,18 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        // recupero tutti i project dal db
-        // recupero le sue relazioni
+        /* recupero tutti i project dal db
+        e recupero le sue relazioni */
+
         $projects = Project::with('type', 'technologies')->paginate(10);
 
         // costruisco la risposta della chiamata API
-        $response = response()->json(
-            [
+        $response = [
                 'success' => true,
                 'projects' => $projects
-            ]);
+            ];
 
-            return $response;
+            return response()->json($response);
     }
 
     /**
